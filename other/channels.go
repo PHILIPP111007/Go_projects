@@ -23,7 +23,7 @@ func factorial(n int) int {
 }
 
 func call_factorial_1(n int, intChannel chan int) {
-	intChannel <- factorial(n)
+	intChannel <- factorial(n) // Loads result to the channel
 }
 
 func call_factorial_2(val int) {

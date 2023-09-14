@@ -17,12 +17,12 @@ type person struct {
 
 // function method insertion
 func (p person) print() {
-	fmt.Println("Имя:", p.name)
-	fmt.Println("Возраст:", p.age)
+	fmt.Println("Name:", p.name)
+	fmt.Println("Age:", p.age)
 }
 
 func (p person) eat(meal string) {
-	fmt.Println(p.name, "ест", meal)
+	fmt.Println(p.name, "eats", meal)
 }
 
 func (p *person) updateAge(age int) {
@@ -35,11 +35,12 @@ func (p *person) updateAge(age int) {
 	-------- Array methods --------
 */
 
+const index_out_msg string = "Index out of range."
+
 // Check if index is out of range.
 func _check_index_and_return_len_arr(array Array, index int) int {
 
 	log.SetFlags(0)
-	var index_out_msg string = "Index out of range."
 	var len_arr int = len(array)
 
 	if index < 0 && index < -len_arr {
@@ -47,7 +48,7 @@ func _check_index_and_return_len_arr(array Array, index int) int {
 	} else if index >= len_arr {
 		log.Fatalln(index_out_msg)
 	}
-	return len(array)
+	return len_arr
 }
 
 func (array Array) __getitem__(index int) int {
@@ -121,5 +122,5 @@ func TryPersons() {
 
 func main() {
 	TryArrays()
-	// TryPersons()
+	TryPersons()
 }

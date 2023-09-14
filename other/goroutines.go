@@ -24,12 +24,12 @@ func main() {
 		big_func(factorial)
 	}
 	t_2 := time.Now().UnixMilli()
-	fmt.Println(t_2 - t_1) // 3149
+	fmt.Println(t_2 - t_1) // 3149 milliseconds
 
 	t_1 = time.Now().UnixMilli()
 	for i := 0; i < 7; i++ {
-		go big_func(factorial)
+		go big_func(factorial) // `go` means create a goroutine
 	}
 	t_2 = time.Now().UnixMilli()
-	fmt.Println(t_2 - t_1) // 0
+	fmt.Println(t_2 - t_1) // 0 millisecond
 }

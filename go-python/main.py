@@ -10,9 +10,12 @@
 
 import ctypes
 
+
 Lib = ctypes.CDLL('go-module/functions.so')
 GoSum = Lib.go_sum  # or Lib.__getattr__('go_sum')
 GoLoop = Lib.go_loop  # or Lib.__getattr__('go_loop')
+
+# Optional:
 GoSum.argtypes = [ctypes.c_longlong, ctypes.c_longlong]
 GoSum.restype = ctypes.c_longlong
 

@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 
@@ -35,5 +33,4 @@ func main() {
 	for key, value := range people {
 		fmt.Println(key, value)
 	}
-
 }

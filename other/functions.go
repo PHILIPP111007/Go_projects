@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// func `add` takes undefined numder of integer arguments
+// func takes undefined numder of integer arguments
 func add_from_int_args(numbers ...int) {
 	var sum int = 0
 	for _, n := range numbers {
@@ -18,7 +18,6 @@ func add_from_int_slice(numbers ...int) {
 		sum += n
 	}
 	fmt.Println("\nSum of numbers =", sum)
-
 }
 
 func add(x int, y int) int {
@@ -62,5 +61,4 @@ func main() {
 	fmt.Println(add_func(1, 2))
 
 	takes_one_func(10, 10, add)
-
 }
