@@ -21,7 +21,10 @@ func create_file() {
 		log.Fatalln(err)
 	}
 	fmt.Println("Created:", file.Name()) // hello.txt
-	file.WriteString("Hello world!")
+
+	for i := 0; i < 10; i++ {
+		file.WriteString("Hello world!")
+	}
 }
 
 func read_file() {
