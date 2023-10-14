@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func create_unbuffered_channel() {
 	intChannel := make(chan int) // initilize unbuffered channel with `nil` value
@@ -51,8 +53,23 @@ func create_buffered_channel() {
 
 // -----------------------------------
 
+func createChannelForChromosomes() {
+	type dictChr map[string][]string
+
+	myChan := make(chan dictChr, 3)
+
+	myChan <- dictChr{
+		"chr1": []string{"a", "a"},
+	}
+
+	fmt.Println(<-myChan)
+}
+
+// -----------------------------------
+
 func main() {
-	// create_unbuffered_channel()
-	// create_buffered_channel()
+	create_unbuffered_channel()
+	create_buffered_channel()
 	call_function()
+	createChannelForChromosomes() // map[chr1:[a a]]
 }

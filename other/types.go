@@ -29,8 +29,20 @@ func nodes() {
 	}
 }
 
-func main() {
+type university struct {
+	name          string
+	studentsCount int
+}
 
+func createUniversity(name string, studentsCount int) *university {
+	newUniversity := university{
+		name:          name,
+		studentsCount: studentsCount,
+	}
+	return &newUniversity
+}
+
+func main() {
 	var km_1 kilometer = 10
 	fmt.Println(km_1) // 10
 
@@ -54,4 +66,6 @@ func main() {
 
 	fmt.Println(phil_student) // {{Phil 23 {r.puk@example.com +7999111000}} Secha 213148723416784}
 
+	newUniversity := createUniversity("Secha", 1000)
+	fmt.Println(newUniversity)
 }

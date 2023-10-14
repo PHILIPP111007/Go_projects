@@ -36,6 +36,6 @@ func read_and_make_vars() {
 }
 
 func main() {
-	// inf_reading()
+	inf_reading()
 	read_and_make_vars()
 }

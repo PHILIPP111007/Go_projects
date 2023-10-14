@@ -33,4 +33,6 @@ func main() {
 	for key, value := range people {
 		fmt.Println(key, value)
 	}
+
+	clear(people) // To remove all key/value pairs from a map
 }

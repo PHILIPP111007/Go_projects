@@ -3,7 +3,6 @@ package main
 import "fmt"
 
 func main() {
-
 	var s1 []string = []string{"1", "2", "3"}
 	fmt.Println(s1) // [1 2 3]
 
@@ -33,5 +32,4 @@ func main() {
 	var n = 3
 	users = append(users[:n], users[n+1:]...)
 	fmt.Println(users) //["Bob", "Alice", "Kate", "Tom", "Paul", "Mike", "Robert"]
-
 }

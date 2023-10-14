@@ -11,7 +11,7 @@ func main() {
 	var a int = 10
 
 	var pointer *int
-	pointer = &a                     // 0xc00010a008 - an address of the var `a`
+	pointer = &a                     // &a -> 0xc00010a008 - an address of the var `a`
 	fmt.Println("Address:", pointer) // значение указателя - адрес переменной x
 	fmt.Println("Value:", *pointer)  // значение переменной x
 
