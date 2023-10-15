@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"log"
+
 	greeting "my-module/module"
 )
 
 func main() {
-
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0) // disable time printing
 
@@ -31,5 +31,4 @@ func main() {
 
 	fmt.Println(names)
 	fmt.Println(len(names))
-
 }

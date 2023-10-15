@@ -11,8 +11,25 @@ import (
 	"time"
 )
 
-func main() {
+func tickChannel() {
+	reqCount := 5
+	requests := make(chan int, reqCount)
 
+	for i := 0; i < reqCount; i++ {
+		requests <- i
+	}
+
+	close(requests)
+	limiter := time.Tick(time.Millisecond * 100)
+
+	for i := range requests {
+		<-limiter
+		fmt.Println("request", i, time.Now().UTC())
+	}
+
+}
+
+func main() {
 	// Tickers use a similar mechanism to timers: a
 	// channel that is sent values. Here we'll use the
 	// `select` builtin on the channel to await the
@@ -38,6 +55,9 @@ func main() {
 	ticker.Stop()
 	done <- true
 	fmt.Println("Ticker stopped")
+
+	tickChannel()
+	fmt.Println("Done")
 }
 
 // $ go run tickers.go

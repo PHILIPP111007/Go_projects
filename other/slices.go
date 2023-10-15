@@ -1,6 +1,39 @@
 package main
 
-import "fmt"
+import (
+	"cmp"
+	"fmt"
+	"slices"
+)
+
+func sorting() {
+	ints := []int{3, 2, 1}
+	fmt.Println(slices.IsSorted(ints)) // false
+	slices.Sort(ints)                  // in-place sorting
+	fmt.Println(ints)                  // [1 2 3]
+}
+
+// sort by function is like Pythons sorted(lst, key=lambda x: ...)
+func sortByFunction() {
+	type Person struct {
+		name string
+		age  uint8
+	}
+
+	people := []Person{
+		Person{name: "Alex", age: 20},
+		Person{name: "Phil", age: 10},
+	}
+	fmt.Println(people) // [{Alex 20} {Phil 10}]
+
+	slices.SortFunc(people,
+		func(a, b Person) int {
+			return cmp.Compare(a.age, b.age)
+		})
+
+	fmt.Println(people) // [{Phil 10} {Alex 20}]
+
+}
 
 func main() {
 	var s1 []string = []string{"1", "2", "3"}
@@ -32,4 +65,7 @@ func main() {
 	var n = 3
 	users = append(users[:n], users[n+1:]...)
 	fmt.Println(users) //["Bob", "Alice", "Kate", "Tom", "Paul", "Mike", "Robert"]
+
+	sorting()
+	sortByFunction()
 }

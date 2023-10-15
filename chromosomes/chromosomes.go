@@ -13,13 +13,13 @@ type chrsDict map[string]chrAlleles
 
 const chrsCount int = 10
 
-func fillDict(i int, chrs chrsDict) {
+func fillDict(i int, chrs *chrsDict) {
 	defer wg.Done() // 3
 
 	time.Sleep(time.Millisecond * 1000)
 	chr := fmt.Sprintf("chr%d", i)
 	fmt.Println(chr)
-	chrs[chr] = chrAlleles{"a", "t", "g", "c"}
+	(*chrs)[chr] = chrAlleles{"a", "t", "g", "c"}
 }
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 
 	for i := 1; i <= chrsCount; i++ {
 		// wg.Add(1) // 2
-		go fillDict(i, chrs)
+		go fillDict(i, &chrs)
 	}
 
 	wg.Wait()         // 4
